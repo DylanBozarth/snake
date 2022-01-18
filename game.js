@@ -1,4 +1,5 @@
 import {snakeSpeed, update as snakeUpdate, draw as drawSnake} from './snake.js'
+const gameBoard =   document.getElementById('gameBoard')
 // game loop
 let lastRenderTime = 0;
 
@@ -19,7 +20,7 @@ snakeUpdate()
 }
 // reflecting changes in the dom
 function draw() {
-drawSnake()
+drawSnake(gameBoard)
 }
 
 

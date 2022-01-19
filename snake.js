@@ -1,16 +1,19 @@
-export const snakeSpeed = 1.4;
+import { getInputDirection } from "./input.js";
+
+export const snakeSpeed = 2.3;
 const snakeBody = [{ x: 10, y: 10 }];
 
 //checking if the player is dead or longer or whatever
 export function update() {
+    const inputDirection = getInputDirection()
   for (let i = snakeBody.length - 2; i >= 0; i--) {
       snakeBody[i + 1] = {...snakeBody[i]}
   }
-  /* to move them manually 
-  snakeBody[0].x += 1
-  snakeBody[0].y += 1
-  */
  
+  snakeBody[0].x += inputDirection.x
+  snakeBody[0].y += inputDirection.y
+  
+
 }
 // reflecting changes in the dom
 export function draw(gameBoard) {

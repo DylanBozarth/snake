@@ -1,7 +1,8 @@
 import { getInputDirection } from "./input.js";
 
 export const snakeSpeed = 2.3;
-const snakeBody = [{ x: 10, y: 10 }];
+let newSegments = 0
+const snakeBody = [{ x: 15, y: 15 }];
 
 //checking if the player is dead or longer or whatever
 export function update() {
@@ -25,4 +26,16 @@ export function draw(gameBoard) {
     snakeElement.classList.add('snake')
     gameBoard.appendChild(snakeElement)
   });
+}
+export function growSnake(amount) {
+newSegments += amount
+}
+export function onSnake(position) {
+return snakeBody.some(segment => {
+    return equalPositions(segment, position)
+})
+}
+function equalPositions (pos1, pos2) {
+return(pos1.x === pos2.x && pos1.y === pos2.y) 
+// if this is true this function returns true
 }

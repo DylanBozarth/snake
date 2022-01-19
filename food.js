@@ -5,7 +5,7 @@ const growthRate = 1
 export function update() {
   if (onSnake(food)) {
       growSnake(growthRate)
-      food = {x: 15,y:15}
+      food = {x: Math.floor(Math.random()*29+1),y:Math.floor(Math.random()*29+1)}
   }
 }
 // reflecting changes in the dom

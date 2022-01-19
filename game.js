@@ -20,6 +20,7 @@ snakeUpdate()
 }
 // reflecting changes in the dom
 function draw() {
+  gameBoard.innerHTML = ''
 drawSnake(gameBoard)
 }
 

@@ -4,7 +4,7 @@ export const snakeSpeed = 4.4;
 let newSegments = 0
 const snakeBody = [{ x: 15, y: 15 }];
 
-//checking if the player is dead or longer or whatever
+//updating direction and heading
 export function update() {
   addSegments()
     const inputDirection = getInputDirection()

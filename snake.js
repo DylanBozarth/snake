@@ -17,6 +17,7 @@ export function update() {
   
 
 }
+
 // reflecting changes in the dom
 export function draw(gameBoard) {
   snakeBody.forEach((segment) => {
@@ -31,10 +32,13 @@ export function draw(gameBoard) {
 export function growSnake(amount) {
 newSegments += amount
 }
-export function onSnake(position) {
-return snakeBody.some(segment => {
+// checking if the snake is on top of food 
+// ignore head is a parameter passed to the function
+export function onSnake(position, { ignoreHead = false } = {}) {
+  return snakeBody.some((segment, index) => {
+    if (ignoreHead && index === 0) return false
     return equalPositions(segment, position)
-})
+  })
 }
 function equalPositions (pos1, pos2) {
 return(pos1.x === pos2.x && pos1.y === pos2.y) 
@@ -45,4 +49,10 @@ for (let i = 0; i < newSegments; i++ ) {
   snakeBody[snakeBody.length] = {...snakeBody[snakeBody.length - 1]}
 }
 newSegments = 0
+}
+export function getSnakePosition() {
+return snakeBody[0]
+}
+export function snakeCannibal() {
+  return onSnake(snakeBody[0], { ignoreHead: true })
 }

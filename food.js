@@ -1,11 +1,14 @@
 import {onSnake, growSnake} from './snake.js'
 let food = newGridPosition()
 const growthRate = 1
+
+
 // check if snake is on food
 export function update() {
   if (onSnake(food)) {
       growSnake(growthRate)
       food = newGridPosition()
+      
   }
 }
 // reflecting changes in the dom

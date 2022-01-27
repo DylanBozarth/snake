@@ -34,6 +34,7 @@ function draw() {
   gameBoard.innerHTML = ''
 drawSnake(gameBoard)
 drawFood(gameBoard)
+
 }
 //DEAD OR NOT 
 function deadOrAlive() {

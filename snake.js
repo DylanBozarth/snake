@@ -1,9 +1,9 @@
 import { getInputDirection } from "./input.js";
 
-export const snakeSpeed = 4.4;
+export const snakeSpeed = 6;
 let newSegments = 0
 const snakeBody = [{ x: 15, y: 15 }];
-
+let score = 0
 //updating direction and heading
 export function update() {
   addSegments()
@@ -31,6 +31,8 @@ export function draw(gameBoard) {
 }
 export function growSnake(amount) {
 newSegments += amount
+score = score + 1
+console.log(score)
 }
 // checking if the snake is on top of food 
 // ignore head is a parameter passed to the function
